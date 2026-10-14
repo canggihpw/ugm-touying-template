@@ -253,7 +253,7 @@
   })
 
   // Content body
-  place(top + left, dx: slide-margin, dy: 3.2cm, {
+  place(top + left, dx: slide-margin, dy: 2.4cm, {
     set text(font: gama-font, size: 11pt, fill: black)
     block(width: slide-width - slide-margin * 2, body)
   })
