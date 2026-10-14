@@ -91,7 +91,7 @@
 
   // Short thick white decorative line  ("very thick" = 1.2pt)
   // LaTeX: from (0.75,3.75) to (1.75,3.75) → dy = 9-3.75 = 5.25cm from top
-  place(top + left, dx: 0.75cm, dy: 5.25cm, {
+  place(top + left, dx: 0.6cm, dy: 5.25cm, {
     line(length: 1cm, stroke: 1.2pt + white)
   })
 
@@ -106,7 +106,7 @@
   // LaTeX: anchor=NW at (0.6, 3.64) → dy = 9-3.64 = 5.36cm from top
   place(top + left, dx: 0.6cm, dy: 5.36cm, {
     set text(fill: white, font: gama-font, size: 7pt)
-    block(width: 4.5cm, subtitle)
+    block(width: 10cm, subtitle)
   })
 
   // URL — white, near bottom
@@ -251,7 +251,7 @@
 
   // Content body
   place(top + left, dx: slide-margin, dy: 2.4cm, {
-    set text(font: gama-font, size: 11pt, fill: black)
+    set text(font: gama-font, size: 12pt, fill: black)
     block(width: slide-width - slide-margin * 2, body)
   })
 
