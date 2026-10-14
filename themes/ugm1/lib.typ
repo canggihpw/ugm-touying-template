@@ -119,7 +119,7 @@
 
   // Tagline — white, near bottom
   // LaTeX: anchor=NW at (8.85, 0.9) from bottom-left (plus node inner sep)
-  place(bottom + left, dx: 8.95cm, dy: -0.55cm, {
+  place(bottom + left, dx: 10cm, dy: -0.55cm, {
     set text(fill: white)
     tagline-style(ugm-tagline)
   })
@@ -236,7 +236,7 @@
 
   // Tagline — blue, bottom
   // LaTeX: anchor=NW at (8.85, 0.65) from bottom-left (plus node inner sep)
-  place(bottom + left, dx: 8.95cm, dy: -0.30cm, {
+  place(bottom + left, dx: 10cm, dy: -0.30cm, {
     set text(fill: ugm-blue)
     tagline-style(ugm-tagline)
   })
