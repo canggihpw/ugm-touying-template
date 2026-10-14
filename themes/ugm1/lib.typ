@@ -35,12 +35,14 @@
 }
 
 // ===== Helper: URL/tagline text with wide tracking =====
-#let url-style = {
-  set text(font: gama-font, weight: "bold", size: 7pt, tracking: 4pt)
+#let url-style(body) = {
+  set text(font: gama-font, weight: "bold", size: 7pt, tracking: 1.1pt)
+  body
 }
 
-#let tagline-style = {
-  set text(font: gama-font, weight: "bold", size: 7pt, tracking: 4pt)
+#let tagline-style(body) = {
+  set text(font: gama-font, weight: "bold", size: 7pt, tracking: 0.5pt)
+  body
 }
 
 // ===================================================================
@@ -81,16 +83,16 @@
     image("images/title-image.png", width: 11.5cm)
   })
 
-  // Thin white decorative line
+  // Thin white decorative line  ("thick" = 0.8pt)
   // LaTeX: from (5.25,7.75) to (15.25,7.75) → dy = 9-7.75 = 1.25cm from top
   place(top + left, dx: 5.25cm, dy: 1.25cm, {
-    line(length: 10cm, stroke: 0.5pt + white)
+    line(length: 10cm, stroke: 0.8pt + white)
   })
 
-  // Short thick white decorative line
+  // Short thick white decorative line  ("very thick" = 1.2pt)
   // LaTeX: from (0.75,3.75) to (1.75,3.75) → dy = 9-3.75 = 5.25cm from top
   place(top + left, dx: 0.75cm, dy: 5.25cm, {
-    line(length: 1cm, stroke: 1.5pt + white)
+    line(length: 1cm, stroke: 1.2pt + white)
   })
 
   // Title — yellow, bold, 16pt, 12cm wide
@@ -108,19 +110,18 @@
   })
 
   // URL — white, near bottom
-  // LaTeX: anchor=NW at (0.6, 0.9) from bottom-left → bottom-anchor, dy=0.9cm
-  place(bottom + left, dx: 0.6cm, dy: 0.9cm, {
-    url-style
+  // LaTeX: anchor=NW at (0.6, 0.9) from bottom-left; node's TOP sits 0.9cm above
+  // the page bottom, so with a bottom anchor we shift up by line-height − 0.9.
+  place(bottom + left, dx: 0.6cm, dy: -0.55cm, {
     set text(fill: white)
-    ugm-url
+    url-style(ugm-url)
   })
 
   // Tagline — white, near bottom
   // LaTeX: anchor=NW at (8.85, 0.9) from bottom-left
-  place(bottom + left, dx: 8.85cm, dy: 0.9cm, {
-    tagline-style
+  place(bottom + left, dx: 8.85cm, dy: -0.55cm, {
     set text(fill: white)
-    ugm-tagline
+    tagline-style(ugm-tagline)
   })
 
   // Yellow stripe at very bottom
@@ -178,18 +179,16 @@
 
   // URL — blue, bottom-right area
   // LaTeX: anchor=NW at (13.85, 0.67) from bottom-left
-  place(bottom + left, dx: 13.85cm, dy: 0.67cm, {
-    url-style
+  place(bottom + left, dx: 13.85cm, dy: -0.32cm, {
     set text(fill: ugm-blue)
-    ugm-url
+    url-style(ugm-url)
   })
 
   // Tagline — blue, bottom-left area
   // LaTeX: anchor=NW at (1.35, 0.67) from bottom-left
-  place(bottom + left, dx: 1.35cm, dy: 0.67cm, {
-    tagline-style
+  place(bottom + left, dx: 1.35cm, dy: -0.32cm, {
     set text(fill: ugm-blue)
-    ugm-tagline
+    tagline-style(ugm-tagline)
   })
 
   pagebreak()
@@ -230,18 +229,16 @@
 
   // URL — blue, bottom
   // LaTeX: anchor=NW at (0.6, 0.65) from bottom-left
-  place(bottom + left, dx: 0.6cm, dy: 0.65cm, {
-    url-style
+  place(bottom + left, dx: 0.6cm, dy: -0.30cm, {
     set text(fill: ugm-blue)
-    ugm-url
+    url-style(ugm-url)
   })
 
   // Tagline — blue, bottom
   // LaTeX: anchor=NW at (8.85, 0.65) from bottom-left
-  place(bottom + left, dx: 8.85cm, dy: 0.65cm, {
-    tagline-style
+  place(bottom + left, dx: 8.85cm, dy: -0.30cm, {
     set text(fill: ugm-blue)
-    ugm-tagline
+    tagline-style(ugm-tagline)
   })
 
   // Frame title — blue, bold, 18pt
@@ -299,18 +296,16 @@
 
   // Tagline — white, bottom
   // LaTeX: anchor=NW at (4.9, 1.6) from bottom-left
-  place(bottom + left, dx: 4.9cm, dy: 1.6cm, {
-    tagline-style
+  place(bottom + left, dx: 4.9cm, dy: -1.25cm, {
     set text(fill: white)
-    ugm-tagline
+    tagline-style(ugm-tagline)
   })
 
   // URL — white, bottom
   // LaTeX: anchor=NW at (7.1, 1.18) from bottom-left
-  place(bottom + left, dx: 7.1cm, dy: 1.18cm, {
-    url-style
+  place(bottom + left, dx: 7.1cm, dy: -0.83cm, {
     set text(fill: white)
-    ugm-url
+    url-style(ugm-url)
   })
 
   pagebreak()
