@@ -65,7 +65,22 @@
   subtitle: "",
   author: "",
   date: "",
+  keywords: (),
+  description: none,
 ) = {
+  // Fill the PDF document metadata (Title, Author, Keywords, Subject).
+  // Metadata must be plain strings, so this runs only when a string title
+  // is supplied. Passing markup (e.g. [Bold *title*]) skips metadata but
+  // still renders normally.
+  if type(title) == str and title != "" {
+    set document(
+      title: title,
+      author: if type(author) == str { author } else { "" },
+      keywords: keywords,
+      description: description,
+    )
+  }
+
   set page(fill: ugm-dark-blue, margin: 0pt)
 
   full-bg(ugm-dark-blue)
@@ -107,6 +122,12 @@
   place(top + left, dx: 0.6cm, dy: 5.36cm, {
     set text(fill: white, font: gama-font, size: 7pt)
     block(width: 10cm, subtitle)
+  })
+
+  // Date — white, 7pt, just below the subtitle
+  place(top + left, dx: 0.6cm, dy: 5.95cm, {
+    set text(fill: white, font: gama-font, size: 7pt)
+    block(width: 10cm, date)
   })
 
   // URL — white, near bottom
